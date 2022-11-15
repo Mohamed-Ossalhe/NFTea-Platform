@@ -88,8 +88,8 @@ ul, ol {
   top: 10vh;
   right: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 90vh;
   width: 100%;
   background-color: rgb(8, 3, 35);
@@ -107,6 +107,19 @@ ul, ol {
 }
 .hero header .header-wrapper .navigation-menu .nav-links .nav-link a {
   color: #fff;
+}
+.hero header .header-wrapper .navigation-menu .log-in {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.hero header .header-wrapper .navigation-menu .log-in:hover {
+  background-color: #fff;
+  color: #000;
 }
 .hero header .header-wrapper .navigation-menu.menu-active {
   transform: translateX(0);
