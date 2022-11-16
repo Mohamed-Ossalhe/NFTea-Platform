@@ -117,6 +117,10 @@ ul,ol {
                     .nav-link {
                         a {
                             color: #fff;
+                            transition: .3s;
+                            &:hover {
+                                color: $main-clr;
+                            }
                         }
                     }
                 }
@@ -128,6 +132,7 @@ ul,ol {
                     color: #fff;
                     font-size: 1.5rem;
                     transition: .3s;
+                    cursor: pointer;
                     &:hover {
                         background-color: #fff;
                         color: #000;
@@ -263,6 +268,7 @@ ul,ol {
                 border: 2px solid #fff;
                 text-align: center;
                 transition: .3s;
+                cursor: pointer;
                 &:hover {
                     background-color: $main-clr;
                     border: 2px solid $main-clr;
@@ -405,6 +411,7 @@ ul,ol {
                 border: none;
                 border-radius: 3px;
                 font-size: 1.3rem;
+                cursor: pointer;
             }
         }
     }
@@ -516,6 +523,149 @@ footer {
         filter: drop-shadow(0px 0px 15px $main-clr);
         animation: headingAnimate 2s .1s linear infinite;
         transform: rotateY(0);
+    }
+}
+
+// media query
+@media screen and (min-width: 992px) {
+    //?  hero
+    .hero {
+        header {
+            .header-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 0;
+                .burger-menu {
+                    display: none;
+                }
+                .navigation-menu {
+                    position: relative;
+                    top: 0;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    height: 100%;
+                    width: 50%;
+                    padding: 0;
+                    background-color: transparent;
+                    font-size: 1rem;
+                    transform: translateX(0);
+                    .nav-links {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 2rem;
+                        .nav-link {
+                            a {
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .log-in {
+                        padding: 0.5rem 1rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        // hero content
+        .hero-content {
+            height: 100vh;
+            .content-wrapper {
+                p {
+                    font-size: 15px;
+                }
+                .hero-heading {
+                    padding: 0 10rem;
+                    font-size: 2rem;
+                    h1 {
+                        img {
+                            height: 45px;
+                        }
+                    }
+                }
+                .hero-btns {
+                    flex-direction: row;
+                    gap: 5rem;
+                }
+            }
+        }
+    }
+    //? services section
+    .services-section {
+        .services-wrapper {
+            .services {
+                .service {
+                    align-items: flex-start;
+                    gap: 1rem;
+                    text-align: left;
+                    p {
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+    //? popular collections
+    .popular-collections {
+        .collections-wrapper {
+            .filters {
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+    }
+    //? news-letter-section
+    .news-letter-section {
+        padding: 2rem 0 3rem;
+        .news-letter-wrapper {
+            .news-letter-text {
+                padding: 0 15rem;
+            }
+            form {
+                flex-direction: row;
+                padding: 0 10rem;
+            }
+        }
+    }
+    //? footer 
+    footer {
+        .footer-wrapper {
+            padding: 2rem 0 0;
+            .info-links {
+                .links {
+                    ul {
+                        li {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+            // copyright
+            .copyright-section {
+                flex-direction: row;
+                .copyright-text {
+                    flex-direction: row;
+                    p{
+                        font-family: $logo-font;
+                        span {
+                            color: $main-clr;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    //? heading component
+    .main-heading {
+        h1 {
+            font-size: 2rem;
+        }
+        hr {
+            width: 10%;
+        }
     }
 }
 
