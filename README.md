@@ -6,7 +6,7 @@
     in addition to the SEO to make it stands in the front when someone searches for travel tours.
 
 * **Preview my Work**:
-    - ***https://www.figma.com/file/7dqOXXj0iqUGlRYTsIWHUB/Travigo-Travel-Agency?node-id=0%3A1***
+    - ***https://www.figma.com/file/n7UrjWILd5BWBsp2pOjqTX/NFT-Platform?node-id=8%3A69&t=Whe1PNUMaYFNCS3n-1***
 
 * **Team:**
     * *our team includes:*
