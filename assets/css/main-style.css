@@ -564,6 +564,9 @@ footer .footer-wrapper .copyright-section .social-links li a {
   footer .footer-wrapper {
     padding: 2rem 0 0;
   }
+  footer .footer-wrapper .info-links {
+    justify-items: center;
+  }
   footer .footer-wrapper .info-links .links ul li {
     font-size: 1.1rem;
   }
