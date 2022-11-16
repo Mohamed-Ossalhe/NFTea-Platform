@@ -319,6 +319,7 @@ ul, ol {
   border: 2px solid #fff;
   overflow: hidden;
   transition: 0.3s;
+  cursor: pointer;
 }
 .frequetly-questions .questions-wrapper .questions .question .question-header {
   display: flex;
