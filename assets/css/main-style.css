@@ -319,6 +319,7 @@ ul, ol {
   border: 2px solid #fff;
   overflow: hidden;
   transition: 0.3s;
+  cursor: pointer;
 }
 .frequetly-questions .questions-wrapper .questions .question .question-header {
   display: flex;
@@ -530,7 +531,7 @@ footer .footer-wrapper .copyright-section .social-links li a {
     font-size: 15px;
   }
   .hero .hero-content .content-wrapper .hero-heading {
-    padding: 0 10rem;
+    padding: 0 15rem;
     font-size: 2rem;
   }
   .hero .hero-content .content-wrapper .hero-heading h1 img {
