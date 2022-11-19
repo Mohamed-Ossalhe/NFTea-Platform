@@ -624,7 +624,7 @@ footer {
                 label {
                     font-size: 1.2rem;
                 }
-                input,.file-input {
+                input {
                     width: 100%;
                     padding: 1rem 0.5rem;
                     background-color: #fff;
@@ -634,11 +634,14 @@ footer {
                     color: #000;
                     font-size: 1.2rem;
                 }
-                .file-input {
-                    color: #666;
-                }
                 input[type="file"] {
-                    display: none;
+                    padding: 0;
+                }
+                input[type="file"]::-webkit-file-upload-button {
+                    padding: 1rem 1rem;
+                    background-color: $main-clr;
+                    color: #fff;
+                    border: none;
                 }
                 input[type="submit"] {
                     background-color: $main-clr;
