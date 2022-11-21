@@ -589,7 +589,7 @@ footer .footer-wrapper .copyright-section .social-links li a {
 .add-nft-page .form-wrapper form .input-field label {
   font-size: 1.2rem;
 }
-.add-nft-page .form-wrapper form .input-field input, .add-nft-page .form-wrapper form .input-field .file-input {
+.add-nft-page .form-wrapper form .input-field input, .add-nft-page .form-wrapper form .input-field textarea {
   width: 100%;
   padding: 1rem 0.5rem;
   background-color: #fff;
@@ -599,11 +599,14 @@ footer .footer-wrapper .copyright-section .social-links li a {
   color: #000;
   font-size: 1.2rem;
 }
-.add-nft-page .form-wrapper form .input-field .file-input {
-  color: #666;
-}
 .add-nft-page .form-wrapper form .input-field input[type=file] {
-  display: none;
+  padding: 0;
+}
+.add-nft-page .form-wrapper form .input-field input[type=file]::-webkit-file-upload-button {
+  padding: 1rem 1rem;
+  background-color: #3455EE;
+  color: #fff;
+  border: none;
 }
 .add-nft-page .form-wrapper form .input-field input[type=submit] {
   background-color: #3455EE;
