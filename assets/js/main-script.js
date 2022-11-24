@@ -18,13 +18,33 @@ window.addEventListener("scroll", ()=>{
 
 // question scrumble
 let questions = document.querySelectorAll(".question");
-questions.forEach((question)=>{
-    question.addEventListener("click", questionActive)
-})
-function questionActive(){
-    questions.forEach((question)=>{
-        question.style.height = "60px";
-        this.style.height = "300px";
-        // console.log(question.firstElementChild.firstElementChild.nextElementSibling)
+
+for(let i = 0; i < questions.length; i++) {
+    questions[i].addEventListener('click', ()=>{
+        questions[i].classList.toggle("question-active");
+        let panel = questions[i].lastElementChild;
+        let questionIcon = questions[i].firstElementChild.lastElementChild;
+        if (panel.style.display === "block") {
+            questionIcon.classList.replace("bxs-minus-circle", "bxs-plus-circle");
+            panel.style.display = "none";
+        } else {
+            questionIcon.classList.replace("bxs-plus-circle", "bxs-minus-circle");
+            panel.style.display = "block";
+        }
     });
 }
+
+// hero video btn
+let videoBtn = document.querySelector(".play-btn");
+let video = document.querySelector(".video");
+
+function revealVideo() {
+    videoBtn.addEventListener("click", ()=>{
+        video.classList.add("video-active");
+    });
+    video.addEventListener("click", ()=>{
+        video.classList.remove("video-active");
+        video.firstElementChild.currentTime = 0;
+    });
+}
+revealVideo();

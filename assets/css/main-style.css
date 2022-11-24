@@ -22,6 +22,7 @@ section {
 }
 
 a {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -146,6 +147,7 @@ ul, ol {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
   height: 100%;
 }
 .hero .hero-content .content-wrapper p {
@@ -209,6 +211,22 @@ ul, ol {
 .hero .hero-content .content-wrapper .hero-btns .video-btn .play-btn:hover {
   height: 55px;
   width: 55px;
+}
+.hero .hero-content .content-wrapper .video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+.hero .hero-content .content-wrapper .video-active {
+  top: 50%;
 }
 
 .market-hero {
@@ -341,10 +359,12 @@ ul, ol {
   font-weight: 500;
 }
 .frequetly-questions .questions-wrapper .questions .question .question-body {
+  display: none;
   padding: 0 1rem;
   line-height: 1.5rem;
 }
 .frequetly-questions .questions-wrapper .questions .question-active {
+  background-color: #3455EE;
   height: 240px;
 }
 
@@ -589,7 +609,7 @@ footer .footer-wrapper .copyright-section .social-links li a {
 .add-nft-page .form-wrapper form .input-field label {
   font-size: 1.2rem;
 }
-.add-nft-page .form-wrapper form .input-field input, .add-nft-page .form-wrapper form .input-field textarea {
+.add-nft-page .form-wrapper form .input-field input, .add-nft-page .form-wrapper form .input-field textarea, .add-nft-page .form-wrapper form .input-field select {
   width: 100%;
   padding: 1rem 0.5rem;
   background-color: #fff;
@@ -697,6 +717,9 @@ footer .footer-wrapper .copyright-section .social-links li a {
     position: relative;
     height: 100vh;
   }
+  .hero .hero-content .content-wrapper {
+    position: relative;
+  }
   .hero .hero-content .content-wrapper p {
     font-size: 15px;
   }
@@ -712,6 +735,19 @@ footer .footer-wrapper .copyright-section .social-links li a {
     flex-direction: row;
     gap: 5rem;
     z-index: 1;
+  }
+  .hero .hero-content .content-wrapper .video {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    z-index: 2;
+  }
+  .hero .hero-content .content-wrapper .video-active {
+    top: 50%;
   }
   .hero .hero-content .market-wrapper {
     position: relative;
@@ -738,9 +774,6 @@ footer .footer-wrapper .copyright-section .social-links li a {
   }
   .popular-collections .collections-wrapper .filters::-webkit-scrollbar {
     display: none;
-  }
-  .popular-collections .collections-wrapper .collections .collection:hover {
-    transform: skew(-5deg, 5deg);
   }
   .news-letter-section {
     padding: 2rem 0 3rem;

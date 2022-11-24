@@ -1,3 +1,5 @@
+<?php include 'connect.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFTea - Enjoy Creating and Selling Digital Arts</title>
-    <!-- icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- main css style -->
-    <link rel="stylesheet" href="assets/css/main-style.css">
+    <?php include 'styles-links.php'  ?>
 </head>
 <body>
     <!-- hero -->
@@ -45,11 +44,14 @@
                         <h1>Explore & Discover Thousands of Incridebale Digital Arts.</h1>
                     </div>
                     <div class="hero-btns">
-                        <button class="hero-btn">Get Start</button>
+                        <a href="dashboard.php"><button class="hero-btn">Get Start</button></a>
                         <div class="video-btn">
                             <div class="play-btn"><i class='bx bx-play'></i></div>
                             <p>Learn More?</p>
                         </div>
+                    </div>
+                    <div class="video">
+                        <iframe width="798" height="449" src="https://www.youtube.com/embed/erJUoC-DkZ0" title="YouCode - Votre avenir en numérique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -64,92 +66,55 @@
                     <hr>
                 </div>
                 <div class="filters">
-                    <div class="filter active" data-category="nft">
+                    <a href="market-place.php"><div class="filter">
                         <h3>All</h3>
-                    </div>
-                    <div class="filter" data-category="game">
-                        <h3>Game</h3>
-                    </div>
-                    <div class="filter" data-category="3D">
-                        <h3>3D</h3>
-                    </div>
-                    <div class="filter" data-category="vr-world">
-                        <h3>V/R World</h3>
-                    </div>
-                    <div class="filter" data-category="music">
-                        <h3>Music</h3>
-                    </div>
-                    <div class="filter" data-category="character">
-                        <h3>Characters</h3>
-                    </div>
+                    </div></a>
+                    <?php
+                        $select_all_colls = "SELECT collection_id,collection_name FROM `collections`";
+                        $select_colls_quered = mysqli_query($connect, $select_all_colls);
+                        while($data_fetched = mysqli_fetch_assoc($select_colls_quered)) {
+                            echo '
+                                <a href="?filterid='. $data_fetched["collection_id"] .'"><div class="filter">
+                                    <h3>'. $data_fetched["collection_name"] .'</h3>
+                                </div></a>';
+                        }
+                    ?>
                 </div>
-                <div class="collections">
-                    <!-- row -->
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- row -->
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- row -->
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
+                <div class="collections" id="nfts">
+                    <?php
+                        // $select_nft_artiste = "SELECT collection_artiste FROM `collections`";
+                        // $select_artiste_quered = mysqli_query($connect, $select_nft_artiste);
+                        // $artistes = mysqli_fetch_assoc($select_artiste_quered);
+                        // print_r($artistes);
+                        if(isset($_GET["filterid"])) {
+                            $filter_id = $_GET["filterid"];
+                            $filter_sql = "SELECT * FROM `nfts` WHERE nft_collection_id = $filter_id";
+                            $filter_query = mysqli_query($connect, $filter_sql);
+                            while($result = mysqli_fetch_assoc($filter_query)) {
+                                echo '
+                                <div class="collection nft">
+                                    <img src="'. $result["nft_image"] .'" alt="nft image" width="100%" height="300px" loading="lazy">
+                                    <h3>'. $result["nft_name"] .'</h3>
+                                    <p>'./* $artistes["collection_artiste"] .*/'</p>
+                                    <p class="price"><b>'. $result["nft_price"] .' ETH</b></p>
+                                </div>
+                                ';
+                            }
+                        }else {
+                            $select_nfts = "SELECT nft_name, nft_image, nft_price, nft_description FROM `nfts`";
+                            $select_nfts_quered = mysqli_query($connect, $select_nfts);
+                            while($result = mysqli_fetch_assoc($select_nfts_quered)) {
+                                echo '
+                                <div class="collection nft">
+                                    <img src="'. $result["nft_image"] .'" alt="nft image" width="100%" height="300px" loading="lazy">
+                                    <h3>'. $result["nft_name"] .'</h3>
+                                    <p>'. $result["nft_description"] .'</p>
+                                    <p class="price"><b>'. $result["nft_price"] .' ETH</b></p>
+                                </div>
+                                ';
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -164,9 +129,16 @@
                 <p class="news-letter-text">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
                 </p>
-                <form action="?" method="post">
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
-                    <input type="submit" value="Subscribe">
+                <?php
+                    if(isset($_POST["submit_subscriber"])) {
+                        $subscriberEmail = $_POST["email"];
+                        $insertEmail = "INSERT INTO `subscribers` (subscriber_email) VALUES ('$subscriberEmail')";
+                        mysqli_query($connect, $insertEmail);
+                    }
+                ?>
+                <form method="post">
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" autocomplete="off">
+                    <input type="submit" name="submit_subscriber" value="Subscribe">
                 </form>
             </div>
         </div>
@@ -187,8 +159,6 @@
                         <ul class="page-links">
                             <li class="page-link"><a href="#">Home</a></li>
                             <li class="page-link"><a href="#">MarketPlace</a></li>
-                            <li class="page-link"><a href="#">About Us</a></li>
-                            <li class="page-link"><a href="#">Support</a></li>
                         </ul>
                     </div>
                     <div class="useful-links links">
@@ -196,8 +166,6 @@
                         <ul class="page-links">
                             <li class="page-link"><a href="#">Home</a></li>
                             <li class="page-link"><a href="#">MarketPlace</a></li>
-                            <li class="page-link"><a href="#">About Us</a></li>
-                            <li class="page-link"><a href="#">Support</a></li>
                         </ul>
                     </div>
                     <div class="contact-info links">

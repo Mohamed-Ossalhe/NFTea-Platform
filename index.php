@@ -1,3 +1,5 @@
+<?php include 'connect.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFTea - Digital Arts Platform</title>
-    <!-- icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- main css style -->
-    <link rel="stylesheet" href="assets/css/main-style.css">
+    <?php require 'styles-links.php'  ?>
 </head>
 <body>
     <!-- hero -->
@@ -47,11 +46,14 @@
                         <img src="assets/imgs/hero-item3.png" alt="" loading="lazy">Digital Artworks.</h1>
                     </div>
                     <div class="hero-btns">
-                        <button class="hero-btn">Get Start</button>
+                        <a href="dashboard.php"><button class="hero-btn">Get Start</button></a>
                         <div class="video-btn">
                             <div class="play-btn"><i class='bx bx-play'></i></div>
                             <p>Learn More?</p>
                         </div>
+                    </div>
+                    <div class="video">
+                        <iframe width="798" height="449" src="https://www.youtube.com/embed/erJUoC-DkZ0" title="YouCode - Votre avenir en numérique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -99,93 +101,22 @@
                     <h1>Get Popular Collections Here</h1>
                     <hr>
                 </div>
-                <div class="filters">
-                    <div class="filter active" data-category="nft">
-                        <h3>All</h3>
-                    </div>
-                    <div class="filter" data-category="game">
-                        <h3>Game</h3>
-                    </div>
-                    <div class="filter" data-category="3D">
-                        <h3>3D</h3>
-                    </div>
-                    <div class="filter" data-category="vr-world">
-                        <h3>V/R World</h3>
-                    </div>
-                    <div class="filter" data-category="music">
-                        <h3>Music</h3>
-                    </div>
-                    <div class="filter" data-category="character">
-                        <h3>Characters</h3>
-                    </div>
-                </div>
                 <div class="collections">
                     <!-- row -->
                     <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- row -->
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- row -->
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
-                    <!-- collection -->
-                    <div class="collection nft">
-                        <img src="assets/imgs/nft-img.png" alt="nft image" width="100%">
-                        <h3>NFT Name</h3>
-                        <p>Creator Name</p>
-                        <p class="price">ETH 0.00097</p>
-                    </div>
+                    <?php
+                        $select_all_collections = "SELECT collection_name, collection_image, collection_artiste FROM `collections`";
+                        $select_coll_quered = mysqli_query($connect, $select_all_collections);
+                        while($result = mysqli_fetch_assoc($select_coll_quered)) {
+                            echo '
+                            <div class="collection nft">
+                                <img src="'. $result["collection_image"] .'" alt="nft image" width="100%" height="300px" loading="lazy">
+                                <h3>'. $result["collection_name"] .'</h3>
+                                <p>'. $result["collection_artiste"] .'</p>
+                            </div>
+                            ';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -198,69 +129,18 @@
                     <hr>
                 </div>
                 <div class="creators">
-                    <!-- row -->
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- row -->
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- row -->
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
-                    <!-- creator -->
-                    <div class="creator">
-                        <div class="img"></div>
-                        <p>Creator Name</p>
-                    </div>
+                    <?php
+                        $select_all_artistes = "SELECT collection_artiste FROM `collections`";
+                        $select_coll_quered = mysqli_query($connect, $select_all_artistes);
+                        while($result = mysqli_fetch_assoc($select_coll_quered)) {
+                            echo '
+                            <div class="creator">
+                                <div class="img"></div>
+                                <p>'. $result["collection_artiste"] .'</p>
+                            </div>
+                            ';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -348,9 +228,18 @@
                 <p class="news-letter-text">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
                 </p>
-                <form action="?" method="post">
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
-                    <input type="submit" value="Subscribe">
+                <?php
+                    if(isset($_POST["submit_subscriber"])) {
+                        $subscriberEmail = $_POST["email"];
+                        $insertEmail = "INSERT INTO `subscribers` (subscriber_email) VALUES ('$subscriberEmail')";
+                        if(mysqli_query($connect, $insertEmail)) {
+                            header('location: index.php');
+                        }
+                    }
+                ?>
+                <form method="post">
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" autocomplete="off">
+                    <input type="submit" name="submit_subscriber" value="Subscribe">
                 </form>
             </div>
         </div>
@@ -371,8 +260,6 @@
                         <ul class="page-links">
                             <li class="page-link"><a href="#">Home</a></li>
                             <li class="page-link"><a href="#">MarketPlace</a></li>
-                            <li class="page-link"><a href="#">About Us</a></li>
-                            <li class="page-link"><a href="#">Support</a></li>
                         </ul>
                     </div>
                     <div class="useful-links links">
@@ -380,8 +267,6 @@
                         <ul class="page-links">
                             <li class="page-link"><a href="#">Home</a></li>
                             <li class="page-link"><a href="#">MarketPlace</a></li>
-                            <li class="page-link"><a href="#">About Us</a></li>
-                            <li class="page-link"><a href="#">Support</a></li>
                         </ul>
                     </div>
                     <div class="contact-info links">
