@@ -64,7 +64,7 @@
                                 if(mysqli_num_rows($max_price_quered) !== 0) {
                                     echo $result["nft_name"];
                                 }else {
-                                    echo 'No';
+                                    echo 'No NFT';
                                 }
                             ?>
                         </p>
@@ -83,7 +83,7 @@
                                 if(mysqli_num_rows($min_price_quered) !== 0) {
                                     echo $result["nft_name"];
                                 }else {
-                                    echo 'No';
+                                    echo 'No NFT';
                                 }
                             ?>
                         </p>

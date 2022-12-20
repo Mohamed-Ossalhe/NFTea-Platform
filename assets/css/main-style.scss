@@ -322,6 +322,7 @@ ul,ol {
                 &:hover {
                     filter: drop-shadow(0px 0px 15px $main-clr);
                     border: 2px solid $main-clr;
+                    transform: rotate(5deg);
                 }
             }
         }

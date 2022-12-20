@@ -14,15 +14,22 @@
         $collection_image = $_FILES["image"];
         $collection_artiste = $_POST["collectionid"];
 
-        // prepare image
-        $image_name = $collection_image["name"];
-        $image_old_path = $collection_image["tmp_name"];
-        $new_folder_path = "assets/collection-images/" . $image_name;
+        if((!($_FILES["image"]["name"]))) {
+            $sql_query = "UPDATE `collections` SET collection_name = '$collection_name', collection_artiste = '$collection_artiste' WHERE collection_id = $collection_id";
+            if(mysqli_query($connect, $sql_query)) {
+                header('location: dashboard.php');
+            }
+        }else {
+            // prepare image
+            $image_name = $collection_image["name"];
+            $image_old_path = $collection_image["tmp_name"];
+            $new_folder_path = "assets/collection-images/" . $image_name;
 
-        $sql_query = "UPDATE `collections` SET collection_name = '$collection_name', collection_image = '$new_folder_path', collection_artiste = '$collection_artiste' WHERE collection_id = $collection_id";
-        if(mysqli_query($connect, $sql_query)) {
-            move_uploaded_file($image_old_path, $new_folder_path);
-            header('location: dashboard.php');
+            $sql_query = "UPDATE `collections` SET collection_name = '$collection_name', collection_image = '$new_folder_path', collection_artiste = '$collection_artiste' WHERE collection_id = $collection_id";
+            if(mysqli_query($connect, $sql_query)) {
+                move_uploaded_file($image_old_path, $new_folder_path);
+                header('location: dashboard.php');
+            }
         }
     }
 ?>
