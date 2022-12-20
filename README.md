@@ -2,10 +2,10 @@
 ## NFTea Platform
 * This Repository includes All the work we did, from Web designing with figma, UML Conception, 
     , Front end side with HTML, CSS, JAVASCRIPT, to BackEnd Side with PHP.
-    Our vision was to make the Platform as simple and modern as possible, and easier to use, also focusing on the mobile first rule, since everybody is surffing the net using their phones, also applying what i learned about the UI and UX laws, such as White spaces, insertion of Colors, Typography, etc...
-    in addition to the SEO to make it stands in the front when someone searches for travel tours.
+    Our vision was to make the Platform as simple and modern as possible, and easier to use, also focusing on the mobile first rule, since everybody is surffing the net using their phones, also applying what We learned about the UI and UX laws, such as White spaces, insertion of Colors, Typography, etc...
+    in addition to the SEO to make it stands in the front when someone searches for Digital Arts.
 
-* **Preview my Work**:
+* **Preview our Work**:
     - ***https://www.figma.com/file/n7UrjWILd5BWBsp2pOjqTX/NFT-Platform?node-id=8%3A69&t=Whe1PNUMaYFNCS3n-1***
 
 * **Team:**
